@@ -1,0 +1,21 @@
+This file explains how to use the Export Segmentation Imaris XT exenstion.
+The extension has been written in Python. 
+
+First of all it is necessary to interface Python with Imaris.
+To this purpouse follow the instructions listed in the internal url "xinterface" (Doxygen documentation)
+that can be found by opening the Imaris program -> Help -> Programming Interface
+
+Go to the Connect Imaris in Python tab and follow the instructions. 
+
+Place the extension within the XT/python folder in Imaris es. C:\Program Files\Bitplane\Imaris x64 9.2.0\XT\python
+If you do not have admin rights, you won't be able to perform this operation and will need to execute the extension
+ from a python terminal or change the path in the extension preamble.
+
+From the Imaris interface, select the view on your desired cells (be aware that everything will be exported, not only the visible ones under the by "Label" option.
+The script will overload the Volume scene with a mask assigning to each pixel a color corrisponding to the segmentation. 
+To be sure to export this in a visible format (also for the human eye), change the Channel properties (Edit ->Image Properties -> Channels ->Channel 1).
+ Go to Mapped Color and assign the Random heatmap (Mapped Color ->Color Table File -> Random). This way the segmented volumes will have human-eye recognizable different colors.
+Also check that the range of the Channel goes really from 0 to the Max value, otherwise change the range.
+
+Now the segmentation is ready to be saved as a Tiff Series (File ->Save As -> Adjustable Tiff Series)
+
